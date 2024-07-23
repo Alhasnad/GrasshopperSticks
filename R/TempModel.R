@@ -6,6 +6,7 @@ head(temp)
 
 #set id as fator
 id<-as.factor(Stick)
+TOD <- as.factor(TOD)
 
 #function to add a new column onto the data with scaled vars (with s before their name)
 scaleVars <- function(df){
@@ -18,7 +19,7 @@ scaleVars <- function(df){
 temp <- scaleVars(temp)
 
 #model
-TempModel  <-  lmer(Temperature  ~  sDOY  + sHeight + sDistance.to.stick.one + (1|id),data=temp)# + poly(sHeight,2)
+TempModel  <-  lmer(Temperature  ~  sDOY  + TOD + sHeight + sDistance.to.stick.one + (1|id),data=temp)# + poly(sHeight,2)
 summary(TempModel)
 
 #run this if the above does not provide p-values
