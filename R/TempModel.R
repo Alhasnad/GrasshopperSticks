@@ -27,7 +27,7 @@ scaleVars <- function(df){
 temp <- scaleVars(temp)
 
 #model
-TempModel  <-  lmer(Temperature  ~  poly(sDOY,2)  + poly(TOD,2) + sHeight + sShade*sDistance.to.stick.one + (1|transect:stick),data=temp)# + poly(sHeight,2)
+TempModel  <-  lmer(Temperature  ~  poly(sDOY,2)  + poly(sTOD,2) + sHeight + sShade + sDistance.to.stick.one + (1|transect:stick),data=temp)# + poly(sHeight,2)
 summary(TempModel)
 r.squaredGLMM(TempModel)
 
