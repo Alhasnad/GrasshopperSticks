@@ -21,25 +21,21 @@ scaleVars <- function(df){
   names(newd) <- sapply(names(newd),function(x)paste0("s",x))
   cbind(df, newd)
 }
-citation("effects")
+
 #apply function
 ghop <- scaleVars(ghop)
 
-#model of height in response to time, doy, shade
-ProxyModel  <-  lm(Height  ~ smilitaryTime + sShade + sDOY + sDistance.to.stick.one,data=ghop)#(1|transect:stick)
-summary(ProxyModel)
-
-#model of height in response to mean temp of the stick (same result with min/min)
-HeightTempModel  <-  lm(Height  ~ MeanTemp,data=ghop)
-summary(HeightTempModel)
-
-#model of height in response to temp of the stick at point grasshopper was sitting- less good model which makes sense!
-HeightTempModel  <-  lm(Height  ~ sTempAtPoint,data=ghop)
-summary(HeightTempModel)
-
 #interaction model of mean temp and variation plus distance to riparian
-HeightTempModel  <-  lm(Height  ~ MeanTemp*SDTemp + Distance.to.stick.one,data=ghop)
+HeightTempModel  <-  lmer(Height  ~ sMeanTemp*sSDTemp + sDistance.to.stick.one+ (1|transect:stick),data=ghop)
 summary(HeightTempModel)
+r.squaredGLMM(HeightTempModel)
+
+#run this if the above does not provide p-values
+# extract coefficients
+coefs <- data.frame(coef(summary(HeightTempModel)))
+# use normal distribution to approximate p-value
+coefs$p.z <- 2 * (1 - pnorm(abs(coefs$t.value)))
+coefs
 
 ##quick plots
 plot(Height  ~ MeanTemp)
@@ -66,3 +62,8 @@ key.args=list(x=0.2,y=0.9,corner=c(x=1, y=0.6)), ci.style="bands",ylim=c(0,100))
 dev.off()
 
 ##
+
+#model of height in indirect response to time, doy, shade
+ProxyModel  <-  lmer(Height  ~ smilitaryTime + sShade + sDOY + sDistance.to.stick.one+ (1|transect:stick),data=ghop)#
+summary(ProxyModel)
+
