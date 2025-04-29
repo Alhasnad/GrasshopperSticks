@@ -9,7 +9,7 @@ Alhassani, N. & E.A.R. Welti
 ## rawdata file:
 
 #### ***GhopSticks.xls*** :
-* Contains add project data including Metadata (README tab), grasshopper presence/heights (GhopSticks tab; synthesized to presence only data in GhopSticksPresence tab), other insects noted on sticks (OtherInsects tab), stick temperatures from radar gun (Temps tab), tabs pertaining to microclimate sensors not used in this study due to a high degree of missing data (tabs: Microclimate Numbers, SensorTimes), and information about stick shading (Sensor Info tab)
+* Contains project data including Metadata (README tab), grasshopper presence/heights (GhopSticks tab; synthesized to presence only data in GhopSticksPresence tab), other insects noted on sticks (OtherInsects tab), stick temperatures from radar gun (Temps tab), tabs pertaining to microclimate sensors not used in this study due to a high degree of missing data (tabs: Microclimate Numbers, SensorTimes), and information about stick shading (Sensor Info tab)
 
 #### ***temp_sticks.csv*** :
 * CSV file containing information on stick parameters and temperatures; heights provided in cm & temperature provided in Celsius; DOY= Day of Year (Julian date); TOD= categorical Time of Day
