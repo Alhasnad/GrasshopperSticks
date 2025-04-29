@@ -34,4 +34,4 @@ Alhassani, N. & E.A.R. Welti
 ## plots file:
 
 #### ***Temp_interactionPlot.tiff*** :
-*main results figure showing effect of interaction between stick mean temperature and temperature variation (TempSD= Temperature Standard Deviation) on grasshopper perch heights
+* main results figure showing effect of interaction between stick mean temperature and temperature variation (TempSD= Temperature Standard Deviation) on grasshopper perch heights
